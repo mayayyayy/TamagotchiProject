@@ -17,5 +17,16 @@ namespace TamagotchiProject.Screen
             AddItem(new Item("surprise ;)", new SurpriseScreen()));
 
         }
+        public override void Show()
+        {
+            bool leave = false;
+            while (!leave)
+            {
+                Main.player = null;
+                base.Show();
+                Choose(out leave);
+            }
+
+        }
     }
 }

@@ -28,7 +28,6 @@ namespace TamagotchiProject.Screen
             Console.WriteLine($"{pet.Name} is clean!");
 
             Console.ReadKey();
-            new PetScreen().Show();
         }
     }
 }

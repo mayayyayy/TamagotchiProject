@@ -14,8 +14,8 @@ namespace TamagotchiProject.Screen
         public OptionScreen(string title) : base(title)
         {
             Items = new List<Item>();
-            if (Main.player != null)
-                AddItem("sign out", new WelcomeScreen());
+            //if (Main.player != null)
+            //    AddItem("sign out", new WelcomeScreen());
         }
 
         public void AddItem(Item i)
@@ -29,27 +29,28 @@ namespace TamagotchiProject.Screen
 
         public override void Show()
         {
-            bool leave = false;
-            while (!leave)
+            base.Show();
+            Console.WriteLine($"choose (1 - {Items.Count()}):");
+            for (int i = 0; i < Items.Count(); i++)
             {
-                base.Show();
-                Console.WriteLine($"choose (1 - {Items.Count()}):");
-                for (int i = 0; i < Items.Count(); i++)
-                {
-                    Console.WriteLine($"{i + 1}: {Items[i].MenuTitle}");
-                }
-                int option;
-                while (!(int.TryParse(Console.ReadLine(), out option)))
-                {
-                    Console.WriteLine("try again bruh");
-                }
-
-                if (option >= 1 && option <= Items.Count())
-                {
-                    leave = true;
-                    Items[option - 1].Screen.Show();
-                }
+                Console.WriteLine($"{i + 1}: {Items[i].MenuTitle}");
             }
+            Console.WriteLine($"{Items.Count + 1}: sign out");
+        }
+
+        protected void Choose(out bool l){
+            int option;
+            while (!(int.TryParse(Console.ReadLine(), out option)))
+            {
+                Console.WriteLine("try again bruh");
+            }
+
+            if (option >= 1 && option <= Items.Count())
+            {
+                Items[option - 1].Screen.Show();
+            }
+            l = false;
+            if(option==Items.Count+1) l = true;
         }
     }
 }

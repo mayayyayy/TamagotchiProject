@@ -19,6 +19,7 @@ namespace TamagotchiProject.Screen
         {
             base.Show();
 
+            //Console.WriteLine("{0,-20} {1,20}", $"Weight: {pet.Weight}", "[ok]");
             Console.WriteLine($"{pet.Name} Weight: {pet.Weight}");
             Console.WriteLine($"{pet.Name} Age: {pet.Age}");
             Console.WriteLine($"{pet.Name} Health Status: {pet.HealthStatus}");

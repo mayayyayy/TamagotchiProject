@@ -20,7 +20,7 @@ namespace TamagotchiProject.Screen
 
             Main.player.ActivePet = new Pet(name);
 
-            new PetScreen().Show();
+            new PetActivitiesMenu().Show();
         }
     }
 }

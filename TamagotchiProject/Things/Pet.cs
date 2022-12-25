@@ -118,7 +118,7 @@ namespace TamagotchiProject.Things
         {
             DeathTime = DateTime.Now;
             HealthStatus = HealthStati[HealthStati.Count - 1];
-            Main.player.PastPets.Add(new Pet("asd"));
+            Main.player.PastPets.Add(this);
             Main.player.ActivePet = null;
             Console.WriteLine("create a new pet");
             Console.ReadKey();

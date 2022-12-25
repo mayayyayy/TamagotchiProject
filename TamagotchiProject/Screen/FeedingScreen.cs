@@ -33,7 +33,6 @@ namespace TamagotchiProject.Screen
             Console.WriteLine($"{pet.Name} is full!");
             Console.ReadKey();
 
-            new PetScreen().Show();
         }
     }
 }

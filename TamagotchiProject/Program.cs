@@ -17,6 +17,7 @@ namespace TamagotchiProject
             t.Start();
             Main app = new Main(new WelcomeScreen());
             app.Start();
+            t.Abort();
         }
         static void TIME()
         {

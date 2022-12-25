@@ -19,7 +19,7 @@ namespace TamagotchiProject.Screen
                 Console.WriteLine("Your past pets:");
                 foreach (Pet pet in player.PastPets)
                 {
-                    Console.WriteLine($"{pet.Name}: {pet.CreationTime}-{pet.DeathTime}");
+                    Console.WriteLine($"{pet.Name}: {pet.CreationTime} - {pet.DeathTime}");
                 }
             }
             else Console.WriteLine("You must first have had at least one pet");
