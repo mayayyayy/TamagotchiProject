@@ -23,10 +23,11 @@ namespace TamagotchiProject.Things
         }
         public Player(string username, string password, string name)
         {
-            this.Username = username;
-            this.Password = password;
-            this.Name = name;
-            this.PastActions = new List<string>();
+            Username = username;
+            Password = password;
+            Name = name;
+            PastActions = new List<string>();
+            PastPets = new List<Pet>();
         }
     }
 }

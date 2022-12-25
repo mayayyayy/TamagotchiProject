@@ -20,6 +20,7 @@ namespace TamagotchiProject
         }
         static void TIME()
         {
+            int hungerCounter = 0;
             while (true)
             {
                 if (!(Things.Main.player is null))
@@ -27,9 +28,18 @@ namespace TamagotchiProject
                     if (!(Things.Main.player.ActivePet is null))
                     {
                         Pet p = Things.Main.player.ActivePet;
-                        p.CleanlinessLevel -= 0.05;
                         p.HungerLevel += 0.05;
-                        p.HappinessLevel -= 0.05;
+                        p.HappinessLevel -= 0.02;
+
+                        if (p.HungerLevel >= 0.8)
+                        {
+                            hungerCounter++;
+                            if (hungerCounter > 15)
+                                p.GetSicker("Hunger");
+                            hungerCounter++;
+                        }
+                        else
+                            hungerCounter = 0;
                     }
                 }
                 Thread.Sleep(1000);

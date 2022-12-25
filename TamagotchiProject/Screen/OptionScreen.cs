@@ -47,7 +47,7 @@ namespace TamagotchiProject.Screen
                 if (option >= 1 && option <= Items.Count())
                 {
                     leave = true;
-                    this.Items[option - 1].Screen.Show();
+                    Items[option - 1].Screen.Show();
                 }
             }
         }

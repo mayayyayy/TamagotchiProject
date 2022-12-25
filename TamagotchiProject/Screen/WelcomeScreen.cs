@@ -16,7 +16,7 @@ namespace TamagotchiProject.Screen
 
         public override void Show()
         {
-            Console.BackgroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             base.Show();
             Console.ReadKey();

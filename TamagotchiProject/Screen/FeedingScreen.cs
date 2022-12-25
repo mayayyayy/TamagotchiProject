@@ -23,7 +23,10 @@ namespace TamagotchiProject.Screen
             {
                 char ch = Console.ReadKey().KeyChar;
                 if (ch >= 'a' && ch <= 'z')
+                {
                     pet.Feed(Food.foods[ch]);
+                    pet.CleanlinessLevel -= 0.15;
+                }
                 else
                     Console.WriteLine($"i don't have a food that starts with {ch}");
             }
