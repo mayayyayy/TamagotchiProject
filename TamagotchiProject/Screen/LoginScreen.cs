@@ -18,40 +18,39 @@ namespace TamagotchiProject.Screen
 
         public override void Show()
         {
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"{"\tenter username"}");
             Console.Write("\t");
             string user = Console.ReadLine();
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine($"{"\tenter password"}");
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.Write("\t");
             string password = Console.ReadLine();
-            while (Main.player.Password != password || Main.player.Username != user)
+            while (Users.Login(user, password) == null)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"{"\tinvalid login. try again"}");
                 Thread.Sleep(2000);
-                Show();
+                Console.WriteLine($"{"\tenter username"}");
+                Console.Write("\t");
+                user = Console.ReadLine();
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine($"{"\tenter password"}");
+                Console.Write("\t");
+                password = Console.ReadLine();
             }
 
+            Main.player = Users.Login(user, password);
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("\tlogin successful");
             if (Main.player.ActivePet != null)
-                new PetScreen().Show();
+                new PetActivitiesMenu().Show();
             else
+            {
                 new NewPetScreen().Show();
-            ScreenBase next = new PetScreen();
-            Console.ResetColor();
-            next.Show(); base.Show();
-            Console.WriteLine("press any key to sign out", 15);
-
+                
+            }
         }
 
-        private Player Login(string user, string password)
-        {
-            return Users.Login(user, password);
-        }
 
 
 
