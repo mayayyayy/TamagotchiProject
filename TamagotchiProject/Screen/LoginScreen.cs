@@ -18,6 +18,7 @@ namespace TamagotchiProject.Screen
 
         public override void Show()
         {
+            base.Show();
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"{"\tenter username"}");
             Console.Write("\t");
@@ -30,6 +31,7 @@ namespace TamagotchiProject.Screen
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"{"\tinvalid login. try again"}");
                 Thread.Sleep(2000);
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine($"{"\tenter username"}");
                 Console.Write("\t");
                 user = Console.ReadLine();
@@ -37,17 +39,24 @@ namespace TamagotchiProject.Screen
                 Console.WriteLine($"{"\tenter password"}");
                 Console.Write("\t");
                 password = Console.ReadLine();
+                if (user == "" && password == "")
+                {
+                    break;
+                }
             }
 
-            Main.player = Users.Login(user, password);
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine("\tlogin successful");
-            if (Main.player.ActivePet != null)
-                new PetActivitiesMenu().Show();
-            else
+            if (Users.Login(user, password) != null)
             {
-                new NewPetScreen().Show();
-                
+                Main.player = Users.Login(user, password);
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("\tlogin successful");
+                if (Main.player.ActivePet != null)
+                    new PetActivitiesMenu().Show();
+                else
+                {
+                    new NewPetScreen().Show();
+
+                }
             }
         }
 

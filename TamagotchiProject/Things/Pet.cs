@@ -52,7 +52,7 @@ namespace TamagotchiProject.Things
         }
 
         //as a function that only approaches 1
-        private static double A = 0.7;
+        private static double A = 0.5;
         public double HappinessLevel
         {
             get
