@@ -31,7 +31,7 @@ namespace TamagotchiProject.Screen
             verydumb.Add($"Health Status: {pet.HealthStatus}");
             verydumb.Add($"Hunger Level: {pet.HungerLevel}");
             verydumb.Add($"Cleanliness Level: {pet.CleanlinessLevel}");
-            verydumb.Add($"Happiness Level: {pet.HappinessLevel}");
+            verydumb.Add($"Happiness Level: {pet.HappinessLevel:F2}");
         }
 
         public override void Show()

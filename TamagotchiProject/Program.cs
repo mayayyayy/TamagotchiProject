@@ -26,7 +26,7 @@ namespace TamagotchiProject
             {
                 if (!(Things.Main.player is null))
                 {
-                    if (!(Things.Main.player.ActivePet is null))
+                    if (!(Things.Main.player.ActivePet is null))    
                     {
                         Pet p = Things.Main.player.ActivePet;
                         p.HungerLevel += 0.05;
