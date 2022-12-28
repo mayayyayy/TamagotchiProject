@@ -16,7 +16,7 @@ namespace TamagotchiProject.Screen
         {
             base.Show();
 
-            Main.player.PastActions.Add($"Played with {Main.player.ActivePet.Name} at {DateTime.Now}");
+            Main.player.PastActions.Add(new PetAction("Played" ,Main.player.ActivePet));
             Console.WriteLine("press / to stop playing");
             while (Console.ReadKey().KeyChar != '/')
             {

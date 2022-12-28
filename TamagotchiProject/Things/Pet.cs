@@ -10,7 +10,7 @@ namespace TamagotchiProject.Things
     public class Pet
     {
         private static string[] FoodReactions = { "yum", "eww", "meh", "more" };
-        private static List<string> HealthStati = new List<string>(){ "Healthy", "Sick", "Dying", "Dead" };
+        public static readonly List<string> HealthStati = new List<string>() { "Healthy", "Sick", "Dying", "Dead" };
 
         public DateTime CreationTime { get; private set; }
         public DateTime DeathTime { get; private set; }

@@ -60,6 +60,7 @@
     <Compile Include="Screen\SignUpScreen.cs" />
     <Compile Include="Screen\SurpriseScreen.cs" />
     <Compile Include="Screen\WelcomeScreen.cs" />
+    <Compile Include="Things\PetAction.cs" />
     <Compile Include="Things\Food.cs" />
     <Compile Include="Things\Item.cs" />
     <Compile Include="Things\Main.cs" />

@@ -18,7 +18,7 @@ namespace TamagotchiProject.Screen
         public override void Show()
         {
             base.Show();
-            Main.player.PastActions.Add($"Fed {pet.Name} at {DateTime.Now}");
+            Main.player.PastActions.Add(new PetAction("Fed", pet));
             while (pet.HungerLevel > 0)
             {
                 char ch = Console.ReadKey().KeyChar;

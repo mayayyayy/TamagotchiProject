@@ -13,9 +13,9 @@ namespace TamagotchiProject.Screen
         public override void Show()
         {
             base.Show();
-            foreach (string s in Main.player.PastActions)
+            foreach (PetAction a in Main.player.PastActions)
             {
-                Console.WriteLine(s);
+                Console.WriteLine(a);
             }
             Console.ReadKey();
         }

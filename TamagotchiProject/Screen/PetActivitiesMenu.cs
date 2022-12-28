@@ -23,6 +23,8 @@ namespace TamagotchiProject.Screen
         public void Update()
         {
             Pet pet = Main.player.ActivePet;
+            if (pet.HealthStatus == Pet.HealthStati[Pet.HealthStati.Count - 1])
+                Console.ForegroundColor = ConsoleColor.DarkRed;
             verydumb.RemoveRange(0,verydumb.Count);
             verydumb.Add($"Weight: {pet.Weight}");
             verydumb.Add($"Age: {pet.Age}");

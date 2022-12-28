@@ -18,7 +18,7 @@ namespace TamagotchiProject.Screen
         public override void Show()
         {
             base.Show();
-            Main.player.PastActions.Add($"Cleaned {pet.Name} at {DateTime.Now}");
+            Main.player.PastActions.Add(new PetAction("Cleaned", pet));
             Console.WriteLine("Press keys to clean");
             while (pet.CleanlinessLevel < 1)
             {

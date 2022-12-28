@@ -14,7 +14,7 @@ namespace TamagotchiProject.Things
 
         public Pet ActivePet { get; set; }
         public List<Pet> PastPets { get; private set; }
-        public List<string> PastActions { get; private set; }
+        public List<PetAction> PastActions { get; private set; }
 
         private static List<Player> players = new List<Player>();
         public bool FindPlayer(Player p)
@@ -26,8 +26,18 @@ namespace TamagotchiProject.Things
             Username = username;
             Password = password;
             Name = name;
-            PastActions = new List<string>();
+            PastActions = new List<PetAction>();
             PastPets = new List<Pet>();
+        }
+
+        public Player(string username, string password, string name, Pet activePet, List<Pet> pastPets, List<PetAction> pastActions)
+        {
+            Username = username;
+            Password = password;
+            Name = name;
+            ActivePet = activePet;
+            PastPets = pastPets;
+            PastActions = pastActions;
         }
     }
 }
