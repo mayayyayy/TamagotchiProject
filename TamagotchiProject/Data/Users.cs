@@ -9,7 +9,12 @@ namespace TamagotchiProject.Data
 {
     public class Users
     {
-        private static List<Player> players = new List<Player>() { new Player("maya", "2929", "maya") };
+        private static List<Player> players = new List<Player>()
+        {
+            new Player("maya", "2929", "maya"),
+            new Player("ohad", "6969", "ohad eyal"),
+            new Player("aviv", "123", "aviv dor")
+        };
 
         public static Player Login(string user, string pword)
         {

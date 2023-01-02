@@ -18,10 +18,17 @@ namespace TamagotchiProject.Screen
 
             Main.player.PastActions.Add(new PetAction("Played" ,Main.player.ActivePet));
             Console.WriteLine("press / to stop playing");
-            while (Console.ReadKey().KeyChar != '/')
+            char ch = Console.ReadKey().KeyChar;
+            while (ch != '/')
             {
                 Main.player.ActivePet.Play();
-                Console.WriteLine(Main.player.ActivePet.HappinessLevel);
+                if (ch == 'g')
+                {
+                    Main.player.ActivePet.Play();
+                    Console.WriteLine($"YES {Main.player.Name}");
+                }
+                Console.WriteLine($"{Main.player.ActivePet.HappinessLevel}");
+                ch = Console.ReadKey().KeyChar;
             }
         }
 

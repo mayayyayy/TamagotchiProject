@@ -30,7 +30,6 @@ namespace TamagotchiProject.Screen
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"{"\tinvalid login. try again"}");
-                Thread.Sleep(2000);
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine($"{"\tenter username"}");
                 Console.Write("\t");

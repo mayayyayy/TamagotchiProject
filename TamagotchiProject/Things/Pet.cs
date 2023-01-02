@@ -20,7 +20,7 @@ namespace TamagotchiProject.Things
         public string HealthStatus { get; set; }
         public Dictionary<Food, string> FoodsToReactions { get; private set; }
 
-        //Levels are from 0 - 1
+        //Levels are from 0 - 100
         private double hungerLevel;
         private double cleanlinessLevel;
         private double happinessLevel;
@@ -32,8 +32,8 @@ namespace TamagotchiProject.Things
             set
             {
                 hungerLevel = value;
-                if (hungerLevel >= 1)
-                    hungerLevel = 1;
+                if (hungerLevel >= 100)
+                    hungerLevel = 100;
                 if (hungerLevel <= 0)
                     hungerLevel = 0;
             }
@@ -44,20 +44,20 @@ namespace TamagotchiProject.Things
             set
             {
                 cleanlinessLevel = value;
-                if (cleanlinessLevel >= 1)
-                    cleanlinessLevel = 1;
+                if (cleanlinessLevel >= 100)
+                    cleanlinessLevel = 100;
                 if (cleanlinessLevel <= 0)
                     cleanlinessLevel = 0;
             }
         }
 
-        //as a function that only approaches 1
-        private static double A = 0.5;
+        //as a function that only approaches 100
+        private static double A = 0.3;
         public double HappinessLevel
         {
             get
             {
-                return happinessLevel / (happinessLevel + A);
+                return 100 * happinessLevel / (happinessLevel + A);
             }
             set
             {
@@ -77,9 +77,9 @@ namespace TamagotchiProject.Things
             Weight = 4;
             Age = 0;
             HealthStatus = HealthStati[0];
-            HungerLevel = 0.4;
-            CleanlinessLevel = 0.2;
-            HappinessLevel = 0.2;
+            HungerLevel = 40;
+            CleanlinessLevel = 20;
+            HappinessLevel = 20;
 
             //map foods to reactions
             Random r = new Random();
@@ -96,7 +96,7 @@ namespace TamagotchiProject.Things
             Console.WriteLine(food.Name);
             Console.WriteLine(FoodsToReactions[food]);
             Weight += food.WeightGain;
-            HungerLevel -= food.FillingLevel;
+            HungerLevel -= 100 * food.FillingLevel;
 
             if (food.FillingLevel == -1)
             {
@@ -106,13 +106,13 @@ namespace TamagotchiProject.Things
         }
         public void Clean()
         {
-            CleanlinessLevel += 0.2;
+            CleanlinessLevel += 20;
             Console.WriteLine("*scrub*");
         }
         public void Play()
         {
-            HappinessLevel += 0.2;
-            Console.WriteLine(":)");
+            HappinessLevel = happinessLevel + 20;
+            Console.WriteLine("hwhehehehe");
         }
         public void Die()
         {
@@ -133,8 +133,8 @@ namespace TamagotchiProject.Things
         public void GetSicker(string reason) //זה לא באמת פעולת גט תרגע אוהד
         {
             int index = HealthStati.FindIndex(x => x == HealthStatus);
-            if (index <= 0) Die(reason);
-            else HealthStatus = HealthStati[index - 1];                
+            //if (index <= 0) Die(reason);
+            HealthStatus = HealthStati[index - 1];                
         }
         #endregion
     }

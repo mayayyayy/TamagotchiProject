@@ -29,10 +29,10 @@ namespace TamagotchiProject
                     if (!(Things.Main.player.ActivePet is null))    
                     {
                         Pet p = Things.Main.player.ActivePet;
-                        p.HungerLevel += 0.05;
-                        p.HappinessLevel -= 0.02;
+                        p.HungerLevel += 5;
+                        //p.HappinessLevel -= 0.02;
 
-                        if (p.HungerLevel >= 0.8)
+                        if (p.HungerLevel >= 80)
                         {
                             hungerCounter++;
                             if (hungerCounter > 15)

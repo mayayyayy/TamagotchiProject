@@ -20,7 +20,7 @@ namespace TamagotchiProject.Screen
             base.Show();
             Main.player.PastActions.Add(new PetAction("Cleaned", pet));
             Console.WriteLine("Press keys to clean");
-            while (pet.CleanlinessLevel < 1)
+            while (pet.CleanlinessLevel < 100)
             {
                 Console.ReadKey();
                 pet.Clean();
