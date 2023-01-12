@@ -30,7 +30,7 @@ namespace TamagotchiProject
                     {
                         Pet p = Things.Main.player.ActivePet;
                         p.HungerLevel += 5;
-                        //p.HappinessLevel -= 0.02;
+                        p.DecreaseHappiness(15);
 
                         if (p.HungerLevel >= 80)
                         {
@@ -43,7 +43,7 @@ namespace TamagotchiProject
                             hungerCounter = 0;
                     }
                 }
-                Thread.Sleep(1000);
+                Thread.Sleep(2000);
             }
         }
     }

@@ -52,7 +52,7 @@ namespace TamagotchiProject.Things
         }
 
         //as a function that only approaches 100
-        private static double A = 0.3;
+        private static double A = 50;
         public double HappinessLevel
         {
             get
@@ -67,6 +67,14 @@ namespace TamagotchiProject.Things
                     //happinessLevel = A / (1 / value - 1);
                     happinessLevel = value;
             }
+        }
+        public void DecreaseHappiness(double x)
+        {
+            HappinessLevel = happinessLevel - x;
+        }
+        public void IncreaseHappiness(double x)
+        {
+            HappinessLevel = happinessLevel + x;
         }
         #endregion
         public Pet(string name)
@@ -111,7 +119,7 @@ namespace TamagotchiProject.Things
         }
         public void Play()
         {
-            HappinessLevel = happinessLevel + 20;
+            IncreaseHappiness(20);
             Console.WriteLine("hwhehehehe");
         }
         public void Die()
