@@ -19,6 +19,26 @@ namespace TamagotchiProject.Things
         public int Age { get; set; }
         public string HealthStatus { get; set; }
         public Dictionary<Food, string> FoodsToReactions { get; private set; }
+        public Pet(string name)
+        {
+            Name = name;
+
+            CreationTime = DateTime.Now;
+            Weight = 4;
+            Age = 0;
+            HealthStatus = HealthStati[0];
+            HungerLevel = 75;
+            CleanlinessLevel = 20;
+            HappinessLevel = 20;
+
+            //map foods to reactions
+            Random r = new Random();
+            FoodsToReactions = new Dictionary<Food, string>();
+            foreach (KeyValuePair<char, Food> f in Food.foods)
+            {
+                FoodsToReactions.Add(f.Value, FoodReactions[r.Next(0, FoodReactions.Length)]);
+            }
+        }
 
         //Levels are from 0 - 100
         private double hungerLevel;
@@ -52,12 +72,13 @@ namespace TamagotchiProject.Things
         }
 
         //as a function that only approaches 100
-        private static double A = 50;
+        private static double A = 100;
+        private static double N = 1.2;
         public double HappinessLevel
         {
             get
             {
-                return 100 * happinessLevel / (happinessLevel + A);
+                return 100 * Math.Pow(happinessLevel, N) / (Math.Pow(happinessLevel, N) + A);
             }
             set
             {
@@ -77,26 +98,6 @@ namespace TamagotchiProject.Things
             HappinessLevel = happinessLevel + x;
         }
         #endregion
-        public Pet(string name)
-        {
-            Name = name;
-
-            CreationTime = DateTime.Now;
-            Weight = 4;
-            Age = 0;
-            HealthStatus = HealthStati[0];
-            HungerLevel = 40;
-            CleanlinessLevel = 20;
-            HappinessLevel = 20;
-
-            //map foods to reactions
-            Random r = new Random();
-            FoodsToReactions = new Dictionary<Food, string>();
-            foreach (KeyValuePair<char, Food> f in Food.foods)
-            {
-                FoodsToReactions.Add(f.Value, FoodReactions[r.Next(0, FoodReactions.Length)]);
-            }
-        }
 
         #region Actions
         public void Feed(Food food)

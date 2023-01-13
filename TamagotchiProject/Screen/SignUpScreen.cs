@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using TamagotchiProject.Data;
 using TamagotchiProject.Things;
 
@@ -10,31 +11,26 @@ namespace TamagotchiProject.Screen
 {
     public class SignUpScreen:ScreenBase
     {
-        public string username;
-        public string password;
-
-        public SignUpScreen() : base("signup")
-        {
-        }
+        public SignUpScreen() : base("signup") { }
 
         public override void Show()
         {
             base.Show();
 
             Console.WriteLine("please enter username");
-            username = Console.ReadLine();
+            string username = Console.ReadLine();
             Console.WriteLine("please enter password");
-            password = Console.ReadLine();
-            AddNewPlayer();
+            string password = Console.ReadLine();
+            Console.WriteLine("enter name");
+            string name = Console.ReadLine();
+            AddNewPlayer(username, password, name);
 
             new NewPetScreen().Show();
         }
 
 
-        private void AddNewPlayer()
+        private void AddNewPlayer(string username, string password, string name)
         {
-            Console.WriteLine("enter name");
-            string name = Console.ReadLine();
             try
             {
                 Main.player = new Player(username, password, name);
