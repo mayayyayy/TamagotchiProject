@@ -23,6 +23,7 @@ namespace TamagotchiProject.Screen
             while (pet.CleanlinessLevel < 100)
             {
                 Console.ReadKey();
+                Console.WriteLine("");
                 pet.Clean();
             }
             Console.WriteLine($"{pet.Name} is clean!");

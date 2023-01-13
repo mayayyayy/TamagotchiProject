@@ -27,7 +27,7 @@ namespace TamagotchiProject.Screen
                     Main.player.ActivePet.Play();
                     Console.WriteLine($"YES {Main.player.Name}");
                 }
-                Console.WriteLine($"{Main.player.ActivePet.HappinessLevel}");
+                Console.WriteLine($"{Main.player.ActivePet.HappinessLevel}{}");
                 ch = Console.ReadKey().KeyChar;
             }
         }
